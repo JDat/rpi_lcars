@@ -1,7 +1,6 @@
 import sys
 import pygame
 import config
-#import globalvars
 
 from datetime import datetime
 
@@ -39,7 +38,7 @@ class ScreenSaver(LcarsScreen):
         #    from screens.main import ScreenMain
         #    self.loadScreen(ScreenMain())
         if event.type:
-            UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+            UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
             self.returnScreen()
         return False
 

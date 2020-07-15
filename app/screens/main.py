@@ -9,7 +9,6 @@ from ui.widgets.screen import LcarsScreen
 
 from datasources.network import get_ip_address_string
 
-#import globalvars
 import config
 import sys
 
@@ -17,7 +16,7 @@ from screens.authorize import ScreenAuthorize
 
 class ScreenMain(LcarsScreen):
     def setup(self, all_sprites):
-        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
         
         if UserInterface.Authorised == False:
             self.callScreen(ScreenAuthorize())
@@ -105,7 +104,7 @@ class ScreenMain(LcarsScreen):
 
     def handleEvents(self, event, fpsClock):
 
-        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             self.beep1.play()

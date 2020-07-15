@@ -2,7 +2,6 @@ from screens.main import ScreenMain
 from ui.ui import UserInterface
 
 import config
-#import globalvars
 
 if __name__ == "__main__":
 
