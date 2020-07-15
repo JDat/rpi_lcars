@@ -5,6 +5,11 @@ from ui.utils import sound
 
 
 class UserInterface:
+    
+    windowStack = []
+    lastEventTime = 0
+    Authorised = False
+    
     def __init__(self, screen, resolution=(800,480),
                  ui_placement_mode=False, fps=60, dev_mode=False, audio=True,
                  audio_params=(22050, -8, 1, 1024)):

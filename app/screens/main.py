@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from ui.ui import UserInterface
+
 from ui.widgets.background import LcarsBackgroundImage, LcarsImage
 from ui.widgets.gifimage import LcarsGifImage
 from ui.widgets.lcars_widgets import *
@@ -7,7 +9,7 @@ from ui.widgets.screen import LcarsScreen
 
 from datasources.network import get_ip_address_string
 
-import globalvars
+#import globalvars
 import config
 import sys
 
@@ -15,9 +17,9 @@ from screens.authorize import ScreenAuthorize
 
 class ScreenMain(LcarsScreen):
     def setup(self, all_sprites):
-        globalvars.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
         
-        if globalvars.Authorised == False:
+        if UserInterface.Authorised == False:
             self.callScreen(ScreenAuthorize())
         
         
@@ -87,11 +89,13 @@ class ScreenMain(LcarsScreen):
         #all_sprites.add(LcarsMoveToMouse(colours.WHITE), layer=1)
         self.beep1 = Sound("assets/audio/panel/201.wav")
         Sound("assets/audio/panel/220.wav").play()
+        # Background warp core sound
+        #Sound("assets/audio/voy_core_1.wav").play(-1)
 
     def update(self, screenSurface, fpsClock):            
 
-        if globalvars.lastEventTime < datetime.now().timestamp() :
-            globalvars.Authorised = False
+        if UserInterface.lastEventTime < datetime.now().timestamp() :
+            UserInterface.Authorised = False
             self.callScreen(ScreenAuthorize())
 
         if pygame.time.get_ticks() - self.lastClockUpdate > 1000:
@@ -101,7 +105,7 @@ class ScreenMain(LcarsScreen):
 
     def handleEvents(self, event, fpsClock):
 
-        globalvars.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             self.beep1.play()
@@ -145,7 +149,7 @@ class ScreenMain(LcarsScreen):
     def logoutHandler(self, item, event, clock):
         #from screens.authorize import ScreenAuthorize
         #self.loadScreen(ScreenAuthorize())
-        globalvars.Authorised = False
+        UserInterface.Authorised = False
         self.callScreen(ScreenAuthorize())
 
 

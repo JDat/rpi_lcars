@@ -1,5 +1,6 @@
 import pygame
-import globalvars
+#import globalvars
+from ui.ui import UserInterface
 
 class LcarsScreen:
     """
@@ -64,7 +65,7 @@ class LcarsScreen:
         Call child window. For example on screensaver timeout call ScreenAuthorize
         or ScreenSaver
         """
-        globalvars.windowStack.append(self)
+        UserInterface.windowStack.append(self)
         self.nextScreen = newScreen
         self.nextScreen.params = params
 
@@ -73,7 +74,7 @@ class LcarsScreen:
         Return to caller screen. For example return from ScreenSaver or
         from ScreenAuthoroze
         """
-        newScreen = globalvars.windowStack.pop()
+        newScreen = UserInterface.windowStack.pop()
         self.nextScreen = newScreen
 
 

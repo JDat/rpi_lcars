@@ -2,11 +2,11 @@ from screens.main import ScreenMain
 from ui.ui import UserInterface
 
 import config
-import globalvars
+#import globalvars
 
 if __name__ == "__main__":
 
-    globalvars.Authorised = False
+    UserInterface.Authorised = False
     
     firstScreen = ScreenMain()
     ui = UserInterface(firstScreen, config.RESOLUTION, config.UI_PLACEMENT_MODE, config.FPS, config.DEV_MODE,

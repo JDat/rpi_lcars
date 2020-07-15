@@ -1,9 +1,11 @@
 import sys
 import pygame
 import config
-import globalvars
+#import globalvars
 
 from datetime import datetime
+
+from ui.ui import UserInterface
 
 from ui import colours
 from ui.utils.sound import Sound
@@ -37,7 +39,7 @@ class ScreenSaver(LcarsScreen):
         #    from screens.main import ScreenMain
         #    self.loadScreen(ScreenMain())
         if event.type:
-            globalvars.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
+            UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVERTIME
             self.returnScreen()
         return False
 
