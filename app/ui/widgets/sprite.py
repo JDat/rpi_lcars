@@ -9,7 +9,6 @@ class LcarsWidget(pygame.sprite.DirtySprite):
         if self.image == None:
             self.image = pygame.Surface(size).convert()
             self.image.fill(color)
-
         self.rect = self.image.get_rect()
         self.rect.top = pos[0]
         self.rect.left = pos[1]

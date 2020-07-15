@@ -23,8 +23,8 @@ class ScreenSaver(LcarsScreen):
         
         all_sprites.add(LcarsBackgroundImage("assets/lcars_screen_screensaver.png"),
                         layer=0)
-        
-        all_sprites.add(LcarsGifImage("assets/stars_at_warp_speed.gif", (0, 0), True), 
+        print('screensaver gif:')
+        all_sprites.add(LcarsGifImage("assets/stars_at_warp_speed.gif", (0, 0), stretch=True), 
                         layer=0)
         # add screen blanking here
         # for example turn off RPi display backlight

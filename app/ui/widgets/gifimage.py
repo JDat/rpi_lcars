@@ -13,6 +13,7 @@ class LcarsGifImage(LcarsWidget):
             size = config.RESOLUTION
         else:
             size = (self.image.get_rect().width, self.image.get_rect().height)
+        print(size)
         LcarsWidget.__init__(self, None, pos, size)
         
     def update(self, screen):
