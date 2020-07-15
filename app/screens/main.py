@@ -89,10 +89,9 @@ class ScreenMain(LcarsScreen):
         self.beep1 = Sound("assets/audio/panel/201.wav")
         Sound("assets/audio/panel/220.wav").play()
         # Background warp core sound
-        #Sound("assets/audio/voy_core_1.wav").play(-1)
+        Sound("assets/audio/voy_core_1.wav").play(-1)
 
     def update(self, screenSurface, fpsClock):            
-
         if UserInterface.lastEventTime < datetime.now().timestamp() :
             UserInterface.Authorised = False
             self.callScreen(ScreenAuthorize())
@@ -103,9 +102,6 @@ class ScreenMain(LcarsScreen):
         LcarsScreen.update(self, screenSurface, fpsClock)
 
     def handleEvents(self, event, fpsClock):
-
-        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
-        
         if event.type == pygame.MOUSEBUTTONDOWN:
             self.beep1.play()
 

@@ -79,7 +79,7 @@ class ScreenAuthorize(LcarsScreen):
 
     def handleEvents(self, event, fpsClock):
         
-        UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
+        #UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             # Play sound

@@ -3,6 +3,8 @@ from pygame.locals import *
 
 from ui.utils import sound
 
+from datetime import datetime
+import config
 
 class UserInterface:
     
@@ -12,7 +14,7 @@ class UserInterface:
     
     def __init__(self, screen, resolution=(800,480),
                  ui_placement_mode=False, fps=60, dev_mode=False, audio=True,
-                 audio_params=(22050, -8, 1, 1024)):
+                 audio_params=(22050, -8, 1, 1024), authorizeScreen=None, screensaver=None):
         # init system
         pygame.display.init()
         pygame.font.init()
@@ -50,6 +52,8 @@ class UserInterface:
     
     def handleEvents(self):
         for event in pygame.event.get():
+
+            UserInterface.lastEventTime = datetime.now().timestamp() + config.SCREENSAVER_TIMEOUT_SECONDS
             if (event.type == pygame.QUIT) or \
                 (event.type == KEYUP and event.key == K_ESCAPE):
                 pygame.quit()
